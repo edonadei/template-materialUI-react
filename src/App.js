@@ -1,11 +1,14 @@
-import React from 'react';
-import './App.css';
-import { Typography } from '@material-ui/core';
+import React from "react";
+import "./App.css";
+import Context from "./Context";
+import { Welcome } from "./components/Welcome";
 
 function App() {
   return (
     <React.Fragment>
-      <Typography>Hello world</Typography>
+      <Context>
+        <Welcome />
+      </Context>
     </React.Fragment>
   );
 }
