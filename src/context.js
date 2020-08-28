@@ -1,41 +1,15 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-const ProductContext = React.createContext();
-// Provider
-// Consumer
+export const CTX = React.createContext();
 
-class ProductProvider extends Component {
-  state = {
-    // Mode
-    a: 0,
-    b: 1,
-    c: 2
-  };
+const Context = props => {
+  const [value, setValue] = useState("coolValue");
+  const [authenticated, setAuthenticated] = useState(true);
+  return (
+    <CTX.Provider value={{ value, setValue, authenticated, setAuthenticated }}>
+      {props.children}
+    </CTX.Provider>
+  );
+};
 
-  componentDidMount() {
-  }
-
-  randomMethod = () => {
-    this.setState(() => {
-      return { a: 1 };
-    });
-
-  };
-
-  render() {
-    return (
-      <ProductContext.Provider
-        value={{
-          ...this.state,
-          randomMethod: this.randomMethod,
-        }}
-      >
-        {this.props.children}
-      </ProductContext.Provider>
-    );
-  }
-}
-
-const ProductConsumer = ProductContext.Consumer;
-
-export { ProductProvider, ProductConsumer };
+export default Context;
