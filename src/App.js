@@ -1,13 +1,16 @@
 import React from "react";
 import "./App.css";
-import Context from "./Context";
-import { Welcome } from "./components/Welcome";
+import {Context} from "Context";
+import { PrincipalLayout } from "./components/PrincipalLayout";
+import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {
   return (
     <React.Fragment>
       <Context>
-        <Welcome />
+        <Router>
+          <PrincipalLayout />
+        </Router>
       </Context>
     </React.Fragment>
   );
